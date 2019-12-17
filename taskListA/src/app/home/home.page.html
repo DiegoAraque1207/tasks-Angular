@@ -8,8 +8,9 @@
 
   <ion-list>
    
-    <ion-card *ngFor ="let task of tasks">
+    <ion-card *ngFor ="let task of taskService.tasks" [routerLink]="'/task/' + task.id" routerDirection="forward">
       <ion-card-header>
+        <ion-card-subtitle>Titulo:</ion-card-subtitle>
         <ion-card-title>{{task.title}}</ion-card-title>
       </ion-card-header>
 
@@ -28,11 +29,13 @@
 
     </ion-card>
 
-
+    
   </ion-list>
-  <ion-buttons slot="end">
-    <ion-button>
-      <ion-icon slot="icon-only" name="clipboard"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+  <ion-item>
+    <ion-buttons slot="start">
+      <ion-button (click)="addtask()" >
+        <ion-icon slot="icon-only" name="clipboard"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
 </ion-content>

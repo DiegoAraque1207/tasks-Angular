@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Task</ion-title>
+
+    <ion-buttons>
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card >
+    <ion-card-header>
+      <ion-card-subtitle>Titulo:</ion-card-subtitle>
+      <ion-card-title>
+        <ion-input (input)="modifyTask()" [(ngModel)]="task.title"></ion-input>
+      </ion-card-title>
+    </ion-card-header>
 
+    <ion-card-content>
+      <ion-card-subtitle>Descripción:</ion-card-subtitle>
+      <ion-textarea (input)="modifyTask()" [(ngModel)]="task.description"></ion-textarea>
+    </ion-card-content>
+
+    <ion-item class="activated">
+      <ion-label>Prioridad:</ion-label>
+      <ion-input (input)="modifyTask()" [(ngModel)]="task.priority" type="number" min=1 max=10></ion-input>
+    </ion-item>
+
+    <ion-item class="activated">
+      <ion-label>Fecha Limite:</ion-label>
+      <ion-input (input)="modifyTask()" [(ngModel)]="task.deadLine" type="date" ></ion-input>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-item>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteTask()">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
 </ion-content>
