@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Task List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content className="ion--padding">
+
+  <ion-list>
+   
+    <ion-card *ngFor ="let task of tasks">
+      <ion-card-header>
+        <ion-card-title>{{task.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-card-subtitle>Descripción:</ion-card-subtitle>
+        {{task.description}}
+      </ion-card-content>
+
+      <ion-item class="activated">
+        <ion-label>Prioridad: {{task.priority}}</ion-label>
+      </ion-item>
+
+      <ion-item class="activated">
+        <ion-label>Fecha Limite: {{task.deadLine}}</ion-label>
+      </ion-item>
+
+    </ion-card>
+
+
+  </ion-list>
+</ion-content>
