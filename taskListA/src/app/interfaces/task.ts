@@ -6,4 +6,6 @@ export interface Task {
     deadLine: Date;
     color: string;
     tag: string;
+    finished: boolean;
+    finishDate: Date;
 }

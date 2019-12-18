@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 368 368" style="enable-background:new 0 0 368 368;" xml:space="preserve" width="512px" height="512px"><g><g>
+	<polygon style="fill:#CCE4FF;" points="328,184 328,232 296,232 72,232 40,232 40,184 72,184 296,184  " data-original="#CCE4FF"/>
+	<polygon style="fill:#CCE4FF;" points="328,8 328,56 296,56 72,56 40,56 40,8  " data-original="#CCE4FF"/>
+</g><g>
+	<path style="fill:#007AFF" d="M40,176c-4.424,0-8,3.584-8,8v48c0,4.424,3.576,8,8,8h24v120c0,4.424,3.576,8,8,8h224   c4.424,0,8-3.576,8-8V240h24c4.424,0,8-3.576,8-8v-48c0-4.416-3.576-8-8-8h-24V64h24c4.424,0,8-3.584,8-8V8c0-4.416-3.576-8-8-8H40   c-4.424,0-8,3.584-8,8v48c0,4.416,3.576,8,8,8h24v112H40z M288,352H80V240h208V352z M320,224H48v-32h272V224z M48,16h272v32H48V16z    M80,64h208v112H80V64z" data-original="#007AFF" class="active-path" data-old_color="#007AFF"/>
+	<path style="fill:#007AFF" d="M232,112h-96c-4.424,0-8,3.584-8,8s3.576,8,8,8h96c4.424,0,8-3.584,8-8S236.424,112,232,112z" data-original="#007AFF" class="active-path" data-old_color="#007AFF"/>
+	<path style="fill:#007AFF" d="M136,304h96c4.424,0,8-3.576,8-8s-3.576-8-8-8h-96c-4.424,0-8,3.576-8,8S131.576,304,136,304z" data-original="#007AFF" class="active-path" data-old_color="#007AFF"/>
+</g></g> </svg>

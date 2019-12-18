@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('./task/task.module').then( m => m.TaskPageModule)
   },
   { path: 'task/:id', loadChildren: () => import('./task/task.module').then( m => m.TaskPageModule)},
+  {
+    path: 'archive',
+    loadChildren: () => import('./archive/archive.module').then( m => m.ArchivePageModule)
+  },
 ];
 
 @NgModule({

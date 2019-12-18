@@ -6,17 +6,18 @@ import {Task} from '../interfaces/task'
 @Injectable({
   providedIn: 'root'
 })
-export class TasksService {
-  public tasks: Task[] = [];
+export class ArchiveAssistantService {
+
+  public archivedTasks: Task[] = [];
   public loaded: boolean = false;
 
   constructor(private storage: Storage) { }
 
   load(): Promise<boolean> {
     return new Promise((resolve) => {
-      this.storage.get('tasks').then((tasksR) => {
+      this.storage.get('archivedTasks').then((tasksR) => {
         if (tasksR != null){
-          this.tasks = tasksR;
+          this.archivedTasks = tasksR;
         }
 
         this.loaded = true;
@@ -27,14 +28,14 @@ export class TasksService {
 
   save(): Promise<boolean> {
     return new Promise((resolve) => {
-      this.storage.set('tasks', this.tasks).then(() => {
+      this.storage.set('archivedTasks', this.archivedTasks).then(() => {
         resolve(true);
         })
       })
   }
 
   assingTag(){
-    this.tasks.forEach((task) => {
+    this.archivedTasks.forEach((task) => {
       if(task.priority == 1){
         task.color = "danger tint"
         task.tag = "!Importante!"
@@ -56,12 +57,12 @@ export class TasksService {
   }
 
   getTask(id): Task {
-    return this.tasks.find(task => task.id === id);
+    return this.archivedTasks.find(task => task.id === id);
   }
 
   createTask(task): void {
-    // let id = this.tasks.length 
-    let id = Math.max(...this.tasks.map(task => parseInt(task.id)), 0) + 1;
+    // let id = this.archivedTasks.length 
+    let id = Math.max(...this.archivedTasks.map(task => parseInt(task.id)), 0) + 1;
     let color = ""
     var tag = ""
     if(task.priority == 1){
@@ -81,7 +82,7 @@ export class TasksService {
       color = "success tint"
       tag = "Manejable"
     }
-    this.tasks.push({
+    this.archivedTasks.push({
       id: id.toString(),
       title: task.title,
       description: task.description,
@@ -98,18 +99,18 @@ export class TasksService {
 
   deleteTask(task): void {
     console.log("esta es la tarea que llego al servicio: ", task)
-    let index = this.tasks.indexOf(task)
+    let index = this.archivedTasks.indexOf(task)
     console.log(index)
-    console.log("length of tasks: ", this.tasks.length)
-    if (this.tasks.length > 0){
-      this.tasks.splice(index, 1)
+    console.log("length of tasks: ", this.archivedTasks.length)
+    if (this.archivedTasks.length > 0){
+      this.archivedTasks.splice(index, 1)
       this.save()
     }
   }
 
 
   reorder(){
-    this.tasks.sort(function(task1, task2){
+    this.archivedTasks.sort(function(task1, task2){
       if(task1.deadLine < task2.deadLine){
         return -1
       } else if (task1.deadLine > task2.deadLine){

@@ -23,7 +23,9 @@ export class TaskPage implements OnInit {
       priority: null,
       deadLine: null,
       color: '',
-      tag: ''
+      tag: '',
+      finished: false,
+      finishDate: null
     }
   }
 

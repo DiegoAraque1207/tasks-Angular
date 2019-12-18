@@ -1,20 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Lista de tareas</ion-title>
-    
-    <ion-buttons slot="end">
-      
-      <ion-button Href="/archive" routerDirection="forward" >
-        <ion-icon slot="icon-only" src="../assets/icon/archives.svg"  ></ion-icon>
-      </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
+    <ion-title>Tareas archivadas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content className="ion--padding">
 
   <ion-list>
-      <ion-card *ngFor ="let task of taskService.tasks" button="true" (click)="presentModal(task.id)" routerDirection="forward">
+      <ion-card *ngFor ="let task of archiveService.archivedTasks" button="true" (click)="presentModal(task.id)" routerDirection="forward">
         <ion-card-header>
           <ion-card-subtitle>Titulo:</ion-card-subtitle>
           <ion-card-title>{{task.title}}</ion-card-title>
@@ -40,10 +36,3 @@
   
   
 </ion-content>
-<ion-item>
-  <ion-buttons slot="start">
-    <ion-button (click)="addtask()" >
-      <ion-icon slot="icon-only" src="../assets/icon/new-task.svg"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-</ion-item>
