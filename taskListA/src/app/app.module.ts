@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { TaskPageModule } from './task/task.module'
 
+import { Camera } from '@ionic-native/camera/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,6 +22,7 @@ import { TaskPageModule } from './task/task.module'
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

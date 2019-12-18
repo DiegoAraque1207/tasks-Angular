@@ -29,7 +29,8 @@ export class TaskPage implements OnInit {
       color: '',
       tag: '',
       finished: false,
-      finishDate: null
+      finishDate: null,
+      picture: null
     },
     this.archive = false
   }

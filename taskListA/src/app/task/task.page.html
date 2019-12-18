@@ -43,6 +43,15 @@
       <ion-input (input)="modifyTask()" [(ngModel)]="task.deadLine" type="date" ></ion-input>
     </ion-item>
 
+    <ion-item>
+      <img [src]="task.picture" *ngIf="task.picture">
+      <ion-button (click)="taskService.takePicture(task.id)">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+      
+    </ion-item>
+    
+
   </ion-card>
 
   <ion-item>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController, ModalController } from '@ionic/angular';
 import {TasksService } from '../services/tasks.service'
 import {TaskPage} from '../task/task.page'
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx'
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import {TaskPage} from '../task/task.page'
 })
 export class HomePage {
 
-  constructor(private alertCtrl: AlertController, private navCtrl: NavController, public taskService: TasksService, private modalController: ModalController) { }
+  constructor(private alertCtrl: AlertController, private navCtrl: NavController, public taskService: TasksService, 
+              private modalController: ModalController) { }
 
   async presentModal(id, value) {
     console.log("valor que llego: ", id)
@@ -28,6 +30,9 @@ export class HomePage {
   ngOnInit(){
     this.taskService.load()
   }
+
+
+
 
   addtask(){
     this.alertCtrl.create({

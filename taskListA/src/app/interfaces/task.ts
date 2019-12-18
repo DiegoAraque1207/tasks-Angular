@@ -8,4 +8,5 @@ export interface Task {
     tag: string;
     finished: boolean;
     finishDate: Date;
+    picture: any;
 }
