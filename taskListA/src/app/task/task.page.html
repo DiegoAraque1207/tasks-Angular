@@ -28,6 +28,11 @@
     </ion-card-content>
 
     <ion-item class="activated">
+      <ion-checkbox slot="start" color="primary" disabled="false" [(ngModel)]="task.finished" checked="{{task.finished}}"></ion-checkbox>
+      <ion-label>Finalizada</ion-label>
+    </ion-item>    
+
+    <ion-item class="activated">
       <ion-label>Prioridad:</ion-label>
       <ion-input (input)="modifyTask()" [(ngModel)]="task.priority" type="number" min=1 max=10></ion-input>
       <ion-badge color="{{task.color}}">{{task.tag}}</ion-badge>

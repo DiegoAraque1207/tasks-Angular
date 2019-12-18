@@ -33,6 +33,8 @@ export class TasksService {
       })
   }
 
+ 
+
   assingTag(){
     this.tasks.forEach((task) => {
       if(task.priority == 1){

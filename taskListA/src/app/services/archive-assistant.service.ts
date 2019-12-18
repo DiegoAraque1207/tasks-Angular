@@ -82,6 +82,7 @@ export class ArchiveAssistantService {
       color = "success tint"
       tag = "Manejable"
     }
+    console.log("task que llego al asistente de archivo: ", task)
     this.archivedTasks.push({
       id: id.toString(),
       title: task.title,
@@ -90,8 +91,8 @@ export class ArchiveAssistantService {
       deadLine: task.deadLine,
       color: color,
       tag: tag,
-      finished: false,
-      finishDate: null
+      finished: task.finished,
+      finishDate: task.finishDate
     })
 
     this.save()

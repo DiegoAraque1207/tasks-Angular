@@ -12,12 +12,13 @@ export class ArchivePage implements OnInit {
 
   constructor(private alertCtrl: AlertController, private navCtrl: NavController, public archiveService: ArchiveAssistantService, private modalController: ModalController) { }
 
-  async presentModal(value) {
-    console.log("valor que llego: ", value)
+  async presentModal(id, value) {
+    console.log("valor que llego: ", id)
     const modal = await this.modalController.create({
       component: TaskPage,
       componentProps: {
-        'id': value
+        'id': id, 
+        archive: value
       }
       
     });

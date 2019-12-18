@@ -14,16 +14,21 @@
 <ion-content className="ion--padding">
 
   <ion-list>
-      <ion-card *ngFor ="let task of taskService.tasks" button="true" (click)="presentModal(task.id)" routerDirection="forward">
+      <ion-card *ngFor ="let task of taskService.tasks" button="true" (click)="presentModal(task.id, false)" routerDirection="forward">
         <ion-card-header>
           <ion-card-subtitle>Titulo:</ion-card-subtitle>
           <ion-card-title>{{task.title}}</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
-          <ion-card-subtitle>Descripción:</ion-card-subtitle>
-          {{task.description}}
+          <ion-card-subtitle>Descripción: {{task.description}}</ion-card-subtitle>
+          
         </ion-card-content>
+
+        <ion-item class="activated">
+          <ion-checkbox slot="start" color="primary" disabled="true" checked="{{task.finished}}"></ion-checkbox>
+          <ion-label>Finalizada</ion-label>
+        </ion-item>
 
         <ion-item class="activated">
           <ion-label>Prioridad: {{task.priority}}</ion-label>
