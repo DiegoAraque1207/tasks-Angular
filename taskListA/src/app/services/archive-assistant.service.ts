@@ -114,7 +114,7 @@ export class ArchiveAssistantService {
       tag: tag,
       finished: task.finished,
       finishDate: task.finishDate,
-      picture: null
+      picture: task.picture
 
     })
 

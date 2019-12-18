@@ -119,7 +119,7 @@ export class TasksService {
       tag: tag,
       finished: false,
       finishDate: null,
-      picture: null
+      picture: task.picture
     })
 
     this.save()
