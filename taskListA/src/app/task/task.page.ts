@@ -43,8 +43,11 @@ export class TaskPage implements OnInit {
     }
   }
 
-  modifyTask(){
-    this.taskService.save()
+  modifyTask(reorder){
+    this.taskService.save().then(() => {
+      this.taskService.reorder()
+    })
+    
   }
 
   deleteTask(){

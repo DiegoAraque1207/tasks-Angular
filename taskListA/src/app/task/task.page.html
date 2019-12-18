@@ -13,23 +13,23 @@
     <ion-card-header>
       <ion-card-subtitle>Titulo:</ion-card-subtitle>
       <ion-card-title>
-        <ion-input (input)="modifyTask()" [(ngModel)]="task.title"></ion-input>
+        <ion-input (input)="modifyTask(false)" [(ngModel)]="task.title"></ion-input>
       </ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <ion-card-subtitle>Descripción:</ion-card-subtitle>
-      <ion-textarea (input)="modifyTask()" [(ngModel)]="task.description"></ion-textarea>
+      <ion-textarea (input)="modifyTask(false)" [(ngModel)]="task.description"></ion-textarea>
     </ion-card-content>
 
     <ion-item class="activated">
       <ion-label>Prioridad:</ion-label>
-      <ion-input (input)="modifyTask()" [(ngModel)]="task.priority" type="number" min=1 max=10></ion-input>
+      <ion-input (input)="modifyTask(true)" [(ngModel)]="task.priority" type="number" min=1 max=10></ion-input>
     </ion-item>
 
     <ion-item class="activated">
       <ion-label>Fecha Limite:</ion-label>
-      <ion-input (input)="modifyTask()" [(ngModel)]="task.deadLine" type="date" ></ion-input>
+      <ion-input (input)="modifyTask(true)" [(ngModel)]="task.deadLine" type="date" ></ion-input>
     </ion-item>
 
   </ion-card>

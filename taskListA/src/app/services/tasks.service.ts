@@ -24,8 +24,13 @@ export class TasksService {
     })
   }
 
-  save(): void {
-    this.storage.set('tasks', this.tasks)
+  save(): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.storage.set('tasks', this.tasks).then(() => {
+        this.loaded = true;
+        resolve(true);
+        })
+      })
   }
 
   getTask(id): Task {
@@ -55,5 +60,26 @@ export class TasksService {
       this.tasks.splice(index, 1)
       this.save()
     }
+  }
+
+  compareTask
+
+  reorder(){
+    this.tasks.sort(function(task1, task2){
+      if(task1.deadLine < task2.deadLine){
+        return -1
+      } else if (task1.deadLine > task2.deadLine){
+        return 1
+      } else {
+        if(task1.priority < task2.priority){
+          return -1
+        } else if (task1.priority > task2.priority){
+          return 1
+        } else {
+          return 0
+        }
+      }
+    })
+    this.save()
   }
 }
