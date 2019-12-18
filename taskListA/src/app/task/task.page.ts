@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TasksService } from '../services/tasks.service';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController, NavParams } from '@ionic/angular';
 import { Task } from '../interfaces/task';
 
 
@@ -12,10 +12,12 @@ import { Task } from '../interfaces/task';
 })
 export class TaskPage implements OnInit {
 
+  @Input() id: string;
+
   public task: Task
-  constructor(private route: ActivatedRoute, private taskService: TasksService, private navCtrl: NavController) { 
+  constructor(navParams: NavParams, private route: ActivatedRoute, private taskService: TasksService, private navCtrl: NavController, private modalController: ModalController) { 
     this.task = {
-      id: '',
+      id: navParams.get('id'),
       title: '',
       description: '',
       priority: null,
@@ -23,8 +25,14 @@ export class TaskPage implements OnInit {
     }
   }
 
+  closeModal(){
+    this.modalController.dismiss()
+  }
+
   ngOnInit() {
-    let taskId = this.route.snapshot.paramMap.get('id')
+    // let taskId = this.route.snapshot.paramMap.get('id')
+    
+    let taskId = this.task.id
 
     if(this.taskService.loaded){
       this.task = this.taskService.getTask(taskId)

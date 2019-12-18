@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, ModalController } from '@ionic/angular';
 import {TasksService } from '../services/tasks.service'
+import {TaskPage} from '../task/task.page'
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,19 @@ import {TasksService } from '../services/tasks.service'
 })
 export class HomePage {
 
-  constructor(private alertCtrl: AlertController, private navCtrl: NavController, public taskService: TasksService) { }
+  constructor(private alertCtrl: AlertController, private navCtrl: NavController, public taskService: TasksService, private modalController: ModalController) { }
+
+  async presentModal(value) {
+    console.log("valor que llego: ", value)
+    const modal = await this.modalController.create({
+      component: TaskPage,
+      componentProps: {
+        'id': value
+      }
+      
+    });
+    return await modal.present();
+  }
 
   ngOnInit(){
     this.taskService.load()

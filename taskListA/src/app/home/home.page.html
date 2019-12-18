@@ -8,7 +8,8 @@
 
   <ion-list>
    
-    <ion-card *ngFor ="let task of taskService.tasks" [routerLink]="'/task/' + task.id" routerDirection="forward">
+    <!-- <ion-card *ngFor ="let task of taskService.tasks" [routerLink]="'/task/' + task.id" routerDirection="forward"> -->
+      <ion-card *ngFor ="let task of taskService.tasks" button="true" (click)="presentModal(task.id)" routerDirection="forward">
       <ion-card-header>
         <ion-card-subtitle>Titulo:</ion-card-subtitle>
         <ion-card-title>{{task.title}}</ion-card-title>
