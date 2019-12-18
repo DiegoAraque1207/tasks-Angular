@@ -2,6 +2,8 @@ export interface Task {
     id: string;
     title: string;
     description: string;
-    priority: Int16Array;
+    priority: number;
     deadLine: Date;
+    color: string;
+    tag: string;
 }

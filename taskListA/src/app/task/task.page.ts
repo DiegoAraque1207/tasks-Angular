@@ -21,7 +21,9 @@ export class TaskPage implements OnInit {
       title: '',
       description: '',
       priority: null,
-      deadLine: null
+      deadLine: null,
+      color: '',
+      tag: ''
     }
   }
 
@@ -43,8 +45,10 @@ export class TaskPage implements OnInit {
     }
   }
 
-  modifyTask(reorder){
+  modifyTask(){
+    
     this.taskService.save().then(() => {
+      this.taskService.assingTag()
       this.taskService.reorder()
     })
     
@@ -53,6 +57,7 @@ export class TaskPage implements OnInit {
   deleteTask(){
     console.log("esta es la tarea: ", this.task)
     this.taskService.deleteTask(this.task)
-    this.navCtrl.navigateBack('/home')
+    // this.navCtrl.navigateBack('/home')
+    this.modalController.dismiss()
   }
 }
